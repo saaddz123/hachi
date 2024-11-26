@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العداد التنازلي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            background-color: #007b3e;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .content {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .unit {
+            text-align: center;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #007b3e;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        الجمهورية الجزائرية الديمقراطية الشعبية<br>
+        وزارة التربية الوطنية<br>
+        شهادة البكالوريا دورة 2025
+    </div>
+
+    <div class="content">
+        <h2>العد التنازلي لموعد امتحان شهادة البكالوريا دورة 2025</h2>
+        <h3>ثانوية: حاشي عبد الرحمان</h3>
+
+        <div class="countdown">
+            <div class="unit">
+                <div class="number" id="days">195</div>
+                يوم
+            </div>
+            <div class="unit">
+                <div class="number" id="hours">0</div>
+                ساعة
+            </div>
+            <div class="unit">
+                <div class="number" id="minutes">33</div>
+                دقيقة
+            </div>
+            <div class="unit">
+                <div class="number" id="seconds">51</div>
+                ثانية
+            </div>
+        </div>
+
+        <div class="footer">
+            سيتم اجتياز امتحان شهادة البكالوريا دورة 2025 في الفترة الممتدة بين:
+            <br>يوم: 09 جوان 2025 ويوم: 13 جوان 2025.
+            <br>بن حدة و بن عيسى يتمنوا لكم النجاح 🙂
+        </div>
+    </div>
+
+    <script>
+        // ضبط التاريخ المستهدف
+        const targetDate = new Date("2025-06-09T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
